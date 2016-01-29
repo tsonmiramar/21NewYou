@@ -53,8 +53,8 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav main-nav">
-					<li><a href="#" class="btn btn-blue">Sign in</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Sign Up</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#signinDialog" class="btn btn-blue">Sign in</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#signupDialog" class="btn btn-blue">Sign Up</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -76,7 +76,8 @@
 			</div>
             </div>
  	</header>	
-    	<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- Sign Up Dialog -->
+    	<div class="modal fade" id="signupDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
 				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
@@ -87,6 +88,26 @@
 					<input type="text" class="form-control form-white" placeholder="Password">
 					<input type="text" class="form-control form-white" placeholder="Repeat Password">
 					<button type="submit" class="btn btn-submit">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+    <!-- Sign In Dialog -->
+        <div class="modal fade" id="signinDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content modal-popup">
+				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+				<h3 class="white">Sign In</h3>
+				<form action="" class="popup-form">
+					<input type="text" class="form-control form-white" placeholder="Email Address">
+					<input type="text" class="form-control form-white" placeholder="Password">
+                                        <div class="checkbox-holder text-left">
+                                            <div class="checkbox">
+                                                <input type="checkbox" value="None" id="squaredOne" name="check" />
+                                                <label for="squaredOne"><span><strong>Remember me</strong></span></label>
+                                            </div>
+                                        </div>
+					<button type="submit" class="btn btn-submit">Start</button>
 				</form>
 			</div>
 		</div>
