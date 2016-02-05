@@ -22,64 +22,104 @@ and open the template in the editor.
 	<!-- Elegant Icons -->
 	<link rel="stylesheet" type="text/css" href="fonts/eleganticons/et-icons.css">
         
+        <!--Datepicker plugin-->
+        <link rel="stylesheet" type="text/css" href="css/datepicker.css">
+        
+        <!--MainPage javascript-->
+        <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        
         <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.4/css/bootstrap-select.min.css">
         <!-- MainPage.css -->
         <link rel="stylesheet" type="text/css" href="css/MainPage.css">
     </head>
     <body>
-        <div class="header">
-            <div class="container">         
+        <nav class="navbar">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-bar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="main-nav-bar">
+                <ul class="nav navbar-nav main-nav">
+                    <li><a href="#" data-toggle="modal" data-target="#addClass" class="btn btn-info btn-lg">Add Class</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#addClass" class="btn btn-info btn-lg">Edit Class</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>    
+        <div class="header"> 
+            <div class="container">        
                 <div class="row">
-                    <div class='nav navbar-collapse'></div>
-                    <div class="col-md-12 text-center text-uppercase">
+                    <div class="col-md-10 text-center text-uppercase col-center">
                         <h1> My Classes </h1>
                         <h2> Let's add your first assignment </h2>                       
                     </div>  
                 </div>
             </div>
-        </div>
-    
+        </div>    
         <div class="main">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 col-center text-center">
-                        <div class="btn btn-info btn-lg" data-toggle="modal" data-target="#addGoal">Add Goal</div>         
-                    </div>
-                    <!-- Adding new goal dialog -->
-                    <div id="addGoal" class="modal fade" role="dialog">
+                    
+                    <!-- Adding new class dialog -->
+                    <div id="addClass" class="modal fade" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title text-center">Add New Goal</h4>
+                                        <h4 class="modal-title text-center">New Class</h4>
                                     </div>
                                     <div class="modal-body">
                                         <form class="popup-form form-group">
-                                            <select class="selectpicker show-menu-arrow center-block"  title="Pick a category for your goal">
-                                                <option>Fitness</option>
-                                                <option>Diet & Food</option>
-                                                <option>Study</option>
-                                                <option>Personal Hygiene</option>
-                                                <option>Time Management</option>
-                                                <option>Reading</option>
-                                                <option>Meditation</option>
-                                                <option>Mindset</option>
-                                                <option>Drinking Water</option>
-                                                <option>Medication</option>
-                                                <option>Other</option>
-                                            </select>
-                                            <p></p>
-                                            <input type="text" class="form-control form-black" placeholder="Goal Name">
-                                            <p> (Be realistic and achievable. For example: I want to lose 5 lbs...) </p>
-                                            <input type="text" class="form-control form-black" placeholder="Goal Description (Optional)">
-                                            
+                                            <input type="text" class="form-control form-black" placeholder="Class Name">
+                                            <p> (For example: CSE 170, CSE 132A...) </p>
+                                            <input type="text" class="form-control form-black" placeholder="Class Description (Optional)">                                         
+                                            <br>
+                                            <a href="#" data-toggle="modal" data-target="#addTask" class="btn btn-info btn-lg btn-block"> Add New Class </a>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                     </div>
-
+                    <!-- add new Task dialog -->
+                    <div id="addTask" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                   <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                   <h4 class="modal-title text-center">New Task</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="popup-form form-group">
+                                            <input type="text" class="form-control form-black" placeholder="Homework Name">
+                                            <br><p> Due Date: </p>                
+                                             <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+                                             <br>
+                                             <div id="newPart">
+                                                 <p><strong> Part 1: </strong></p>
+                                                 <input type="text" class="form-control form-black" placeholder="Part Name">
+                                                 <br><p> Due Date: </p>                
+                                                 <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+                                                 <br>                                                                              
+                                             </div>
+                                             <a class="btn btn-blue col-center"href="#" id="addPart"> Add new smaller task ? </a>
+                                             <p></p>
+                                             <a href="#"  class="btn btn-info btn-lg btn-block" id="smallerTask"> Add New Task </a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -90,7 +130,9 @@ and open the template in the editor.
 	<script src="js/wow.min.js"></script>
 	<script src="js/typewriter.js"></script>
 	<script src="js/jquery.onepagenav.js"></script>
+        <script src="js/bootstrap-datepicker.js"></script>
         <!-- Latest compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.4/js/bootstrap-select.min.js"></script>
+ <script language="javascript" type="text/javascript" src="js/MainPage.js"></script>
     </body>
 </html>
